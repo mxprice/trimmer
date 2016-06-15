@@ -8,8 +8,8 @@ program
 	.command('get <getValue>')
 	.option('-s, --server <server>', 'The server address and port')
 	.action(function(getValue, options) {
-		console.log(getValue);
-		console.log(serverAddress);
+		// console.log(getValue);
+		// console.log(serverAddress);
 
 		const serverAddress = options.server || undefined;
 		var options = {};
