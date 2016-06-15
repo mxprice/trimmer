@@ -9,11 +9,9 @@ program
 	.option('-s, --server <server>', 'The server address and port')
 	.parse(process.argv);
 
-const serverAddress = program.server || undefined;
+const serverAddress = program.commands[0].server || undefined;
 var options = {};
 if (serverAddress != undefined)
 	options = {'-s': serverAddress};
 
-handler.handleCommand('get', program.getValue, options);
-
-// program.parse(process.argv);
+handler.handleCommand('get', program.commands[0].args[1], options);
