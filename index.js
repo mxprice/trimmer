@@ -3,15 +3,19 @@ const program = require('commander');
 
 const handler = require('./lib/command_handlers');
 
+const SupportedOptions = ['server'];
+
 program
-	.version('0.0.1')
 	.command('get <getValue>')
-	.option('-s, --server <server>', 'The server address and port')
+	.option('-s, --server <server>', 'server')
+	.option('-d, --ddd <ddd>', 'dddddd')
 	.parse(process.argv);
 
-const serverAddress = program.commands[0].server || undefined;
-var options = {};
-if (serverAddress != undefined)
-	options = {'-s': serverAddress};
+const options = {};
 
-handler.handleCommand('get', program.commands[0].args[1], options);
+for (const opt of SupportedOptions) {
+	if (opt in program.commands[0])
+		options[opt] = program.commands[0][opt];
+}
+
+handler.handleCommand(program.commands[0].args[0], program.commands[0].args[1], options);
