@@ -1,0 +1,28 @@
+{
+  "name": "trimmer",
+  "version": "0.0.0",
+  "description": "Trimmer api",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "~3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.5.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mxprice/trimmer.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/mxprice/trimmer/issues"
+  }
+}
