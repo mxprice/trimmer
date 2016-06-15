@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
 
-const handler = require('lib/command_handlers');
+const handler = require('./lib/command_handlers');
 
 program
 	.version('0.0.1')
@@ -12,9 +12,9 @@ program
 		console.log(serverAddress);
 
 		const serverAddress = options.server || undefined;
-		let options = {};
+		var options = {};
 		if (serverAddress != undefined)
-			options = {'server': serverAddress};
+			options = {'-s': serverAddress};
 
 		handler.handleCommand('get', getValue, options);
 	});
