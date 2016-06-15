@@ -2,6 +2,10 @@ REPORTER = spec
 
 all: jshint test
 
+install:
+	sudo npm install -g
+	npm link
+
 test:
 	@NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter $(REPORTER) --timeout 3000
 
@@ -19,6 +23,7 @@ unit:
 skel:
 	mkdir examples lib test
 	touch index.js
-	npm install mocha chai --save-dev
+	npm install mocha chai commander --save-dev
+	sudo chmod +x index.js lib/command_handlers.js
 
 .PHONY: test tap unit jshint skel
