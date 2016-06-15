@@ -2,7 +2,7 @@
 const program = require('commander');
 
 const handler = require('./lib/command_handlers');
-
+console.log("linked");
 program
 	.version('0.0.1')
 	.command('get <getValue>')
