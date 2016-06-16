@@ -13,9 +13,10 @@ program
 
 const options = {};
 
-for (const opt of SupportedOptions) {
-	if (opt in program.commands[0])
-		options[opt] = program.commands[0][opt];
+for (const opt of program.commands[0].options) {
+	const optionType = SupportedOptions.indexOf(opt.description)
+	if (optionType != -1)
+		options[opt.short] = program.commands[0][SupportedOptions[optionType]];
 }
 
 handler.handleCommand(program.commands[0].args[0], program.commands[0].args[1], options);
